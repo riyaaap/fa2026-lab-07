@@ -30,9 +30,9 @@ const lambdaLogsPolicy = new aws.iam.RolePolicyAttachment("lambdaLogsPolicy", {
 //
 // TODO: fill in the three blanks below.
 const flagFunction = new aws.lambda.Function("flagFunction", {
-  runtime: <FILL_IN>,
-  code: <FILL_IN>,
-  handler: <FILL_IN>,
+  runtime: "nodejs22.11.0",
+  code: new pulumi.asset.FileAsset("./lambda"),
+  handler: "index.handler",
   role: lambdaRole.arn,
   environment: {
     variables: {
